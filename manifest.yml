@@ -10,5 +10,6 @@ applications:
     VARNISH_MEMORY_LIMIT: 2G
     SSHFS_NAMESPACE: "agov.on.ibm.bluemix"
   services:
-  -  agovdb
+  -  droopyagovdb
+  -  droopyagovredis
   -  sendmail
