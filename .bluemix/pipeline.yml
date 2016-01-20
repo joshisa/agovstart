@@ -78,35 +78,26 @@ stages:
         # Pre-emptive measure to simply download and install them during setup
         rooturl=http://ftp.drupal.org/files/projects/
         # Admin and Development
-        desiredModule[0]=httprl-7.x-1.14.zip
-        desiredModule[1]=advanced_help-7.x-1.3.zip
-        desiredModule[2]=jquery_update-7.x-2.7.zip
         # Performance
-        desiredModule[3]=expire-7.x-2.0-rc4.zip
-        desiredModule[4]=advagg-7.x-2.17.zip
+        desiredModule[0]=advagg-7.x-2.17.zip
         # Caching
-        desiredModule[5]=redis-7.x-3.11.zip
-        desiredModule[6]=varnish-7.x-1.0-beta3.zip
-        # SPAM Control
-        desiredModule[7]=cloudflare-7.x-1.0-beta4.zip
+        desiredModule[1]=redis-7.x-3.11.zip
+        desiredModule[2]=varnish-7.x-1.0-beta3.zip
         # SMTP Support
-        desiredModule[8]=smtp-7.x-1.3.zip
+        desiredModule[3]=smtp-7.x-1.3.zip
         # Improved Security
-        desiredModule[9]=security_review-7.x-1.2.zip
-        desiredModule[10]=missing_module-7.x-1.0.zip
-        desiredModule[11]=autologout-7.x-4.4.zip
+        desiredModule[4]=security_review-7.x-1.2.zip
+        desiredModule[5]=missing_module-7.x-1.0.zip
         # Twilio SMS Support
-        desiredModule[12]=twilio-7.x-1.11.zip
+        desiredModule[6]=twilio-7.x-1.11.zip
         # Piwik Support
-        desiredModule[13]=piwik-7.x-2.7.zip
+        desiredModule[7]=piwik-7.x-2.7.zip
         # Minify HTML - Google PageSpeed Optimization
-        desiredModule[14]=minify-7.x-1.3.zip
+        desiredModule[8]=minify-7.x-1.3.zip
         # Optimize Images - Google PageSpeed Optimization
-        desiredModule[15]=imageapi_optimize-7.x-1.2.zip
-        # Backup and Migrate
-        desiredModule[16]=backup_migrate-7.x-3.1.zip
+        desiredModule[9]=imageapi_optimize-7.x-1.2.zip
         # AuthCache v2
-        desiredModule[17]=authcache-7.x-2.0-beta7.zip
+        desiredModule[10]=authcache-7.x-2.0-beta7.zip
         
         echo -e "${tools}${Cyan}      Installing Predis Redis Client Library ...${no_color}"
         wget https://github.com/nrk/predis/archive/v1.0.3.zip -nv -O ./bluezone/predis.zip
@@ -116,10 +107,6 @@ stages:
         wget https://github.com/twilio/twilio-php/archive/master.zip -nv -O ./bluezone/twilio.zip
         unzip -o ./bluezone/twilio.zip -d ./htdocs/${INSTALLPKG}/sites/all/libraries > /dev/null 2>&1
         mv ./htdocs/${INSTALLPKG}/sites/all/libraries/twilio-php-master ./htdocs/${INSTALLPKG}/sites/all/libraries/twilio
-        
-        echo -e "${tools}${Cyan}      Installing CorporateClean Theme ...${no_color}"
-        wget http://ftp.drupal.org/files/projects/corporateclean-7.x-2.3.zip -nv -O ./bluezone/corpclean.zip
-        unzip -o ./bluezone/corpclean.zip -d ./htdocs/${INSTALLPKG}/sites/all/themes > /dev/null 2>&1
         
         for (( i = 0 ; i < ${#desiredModule[@]} ; i++ )); do 
           echo -e "${tools}${Cyan}      Installing ${desiredModule[$i]} Module ...${no_color}"
