@@ -401,8 +401,8 @@ stages:
         export CF_REGION=AU
       fi
       
-      if [ -z $(cf s|grep agovdb|cut -d" " -f1-1) ]; then
-        echo -e "${fail}${Red}  PostGresql Service Instance [${Yellow}agovdb${Red}] was not found${no_color}"
+      if [ -z $(cf s|grep droopyagovdb|cut -d" " -f1-1) ]; then
+        echo -e "${fail}${Red}  PostGresql Service Instance [${Yellow}droopyagovdb{Red}] was not found${no_color}"
         return 1
       fi
       
