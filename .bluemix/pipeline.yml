@@ -230,11 +230,11 @@ stages:
            echo -e "if (isset(\$services_json)) {" >> ./htdocs/${INSTALLPKG}/sites/default/settings.php
            echo -e "  if (isset(\$services_json[\"user-provided\"])) {" >> ./htdocs/${INSTALLPKG}/sites/default/settings.php
            echo -e "    foreach(\$services_json[\"user-provided\"] as \$item) {" >> ./htdocs/${INSTALLPKG}/sites/default/settings.php
-           echo -e "      if (\$item[\"name\"] == \"openresdb\") {" >> ./htdocs/${INSTALLPKG}/sites/default/settings.php
+           echo -e "      if (\$item[\"name\"] == \"droopyagovdb\") {" >> ./htdocs/${INSTALLPKG}/sites/default/settings.php
            echo -e "         \$postgres_config = \$item[\"credentials\"];" >> ./htdocs/${INSTALLPKG}/sites/default/settings.php
            echo -e "         list(\$hostname, \$port) = explode(':', \$postgres_config[\"public_hostname\"]);" >> ./htdocs/${INSTALLPKG}/sites/default/settings.php
            echo -e "         \$dbname = 'compose';" >> ./htdocs/${INSTALLPKG}/sites/default/settings.php
-           echo -e "      } elseif (\$item[\"name\"] == \"openresredis\") {" >> ./htdocs/${INSTALLPKG}/sites/default/settings.php
+           echo -e "      } elseif (\$item[\"name\"] == \"droopyagovredis\") {" >> ./htdocs/${INSTALLPKG}/sites/default/settings.php
            echo -e "         \$redis_config = \$item[\"credentials\"];" >> ./htdocs/${INSTALLPKG}/sites/default/settings.php
            echo -e "         list(\$rhostname, \$rport) = explode(':', \$redis_config[\"public_hostname\"]);" >> ./htdocs/${INSTALLPKG}/sites/default/settings.php
            # Useful only if Redis Caching is desired
