@@ -41,7 +41,7 @@ stages:
       present='\xF0\x9F\x8E\x81'
       #############
       echo ""
-      INSTALLPKG=agov-7.x-2.1
+      INSTALLPKG=agov-7.x-3.0
       echo -e "${cloud}${Cyan}  Let's setup aGov for initial deployment${no_color}"
       echo -e "${tools}${Yellow}    Updating apt-get ...${no_color}"
       sudo apt-get update > /dev/null 2>&1
