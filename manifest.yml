@@ -11,5 +11,4 @@ applications:
     SSHFS_NAMESPACE: "agov.on.ibm.bluemix"
   services:
   -  droopyagovdb
-  -  droopyagovredis
   -  sendmail
